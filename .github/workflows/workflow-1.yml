@@ -14,10 +14,6 @@ jobs:
       - name: Run my build task
         run: |
           echo "Executing the build task for Workflow 1..."
-          # Your actual build/test/deployment commands here
-          # For example:
-          # npm install
-          # npm test
-          # npm run build
+          # Your actual build, test, or deployment commands go here.
           sleep 30 # Simulate a task taking time
           echo "Workflow 1 completed successfully."
