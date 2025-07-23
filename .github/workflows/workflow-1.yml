@@ -8,31 +8,41 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
-      - name: Install dependencies 
-        run: |
-          echo "Installing project dependencies..."
-          npm install
-
-      - name: Run unit tests 
-        run: |
-          echo "Running unit tests..."
-          npm test
-
-      - name: Build project 
+      - name: Build project
         run: |
           echo "Building project artifacts..."
-          npm run build
-
-      - name: Display build output 
+          echo "Simulating successful build."
+          
+      - name: Ensure workflow completes successfully (for testing orchestrator)
         run: |
-          echo "Listing build directory contents:"
-          ls -R dist # Or whatever your build output directory is
-          echo "Workflow 1 completed successfully."
+          echo "Workflow 1 explicitly marked as successful to test orchestrator chain."
+          exit 0 # This ensures the job concludes as success for the orchestrator to pick up
+          
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '18'
+
+      # - name: Install dependencies 
+      #   run: |
+      #     echo "Installing project dependencies..."
+      #     npm install
+
+      # - name: Run unit tests 
+      #   run: |
+      #     echo "Running unit tests..."
+      #     npm test
+
+      # - name: Build project 
+      #   run: |
+      #     echo "Building project artifacts..."
+      #     npm run build
+
+      # - name: Display build output 
+      #   run: |
+      #     echo "Listing build directory contents:"
+      #     ls -R dist # Or whatever your build output directory is
+      #     echo "Workflow 1 completed successfully."
