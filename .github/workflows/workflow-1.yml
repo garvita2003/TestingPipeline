@@ -14,6 +14,7 @@ jobs:
       - name: Run my build task
         run: |
           echo "Executing the build task for Workflow 1..."
-          # Your actual build, test, or deployment commands go here.
-          sleep 30 # Simulate a task taking time
+          echo "Workflow in the other repository Started"
+          sleep 30 
+          echo "Workflow in the other repo completed"
           echo "Workflow 1 completed successfully."
