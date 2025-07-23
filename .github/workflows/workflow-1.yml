@@ -11,10 +11,28 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run my build task
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies 
         run: |
-          echo "Executing the build task for Workflow 1..."
-          echo "Workflow in the other repository Started"
-          sleep 30 
-          echo "Workflow in the other repo completed"
+          echo "Installing project dependencies..."
+          npm install
+
+      - name: Run unit tests 
+        run: |
+          echo "Running unit tests..."
+          npm test
+
+      - name: Build project 
+        run: |
+          echo "Building project artifacts..."
+          npm run build
+
+      - name: Display build output 
+        run: |
+          echo "Listing build directory contents:"
+          ls -R dist # Or whatever your build output directory is
           echo "Workflow 1 completed successfully."
