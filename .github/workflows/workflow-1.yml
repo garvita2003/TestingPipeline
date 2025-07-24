@@ -12,11 +12,32 @@ jobs:
         run: |
           echo "Building project artifacts..."
           echo "Simulating successful build."
+          sleep 300 # Sleep for 300 seconds (5 minutes)
           
       - name: Ensure workflow completes successfully (for testing orchestrator)
         run: |
           echo "Workflow 1 explicitly marked as successful to test orchestrator chain."
           exit 0 # This ensures the job concludes as success for the orchestrator to pick up
+
+# name: Workflow 1
+
+# on:
+#   repository_dispatch:
+#     types: [start-workflow-1]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Build project
+#         run: |
+#           echo "Building project artifacts..."
+#           echo "Simulating successful build."
+          
+#       - name: Ensure workflow completes successfully (for testing orchestrator)
+#         run: |
+#           echo "Workflow 1 explicitly marked as successful to test orchestrator chain."
+#           exit 0 # This ensures the job concludes as success for the orchestrator to pick up
           
       # - name: Checkout code
       #   uses: actions/checkout@v2
