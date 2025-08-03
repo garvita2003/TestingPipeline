@@ -11,4 +11,4 @@ jobs:
       - name: Do something
         run: |
           echo "Running tasks in Repo B"
-          sleep 300 # Sleep for 300 seconds (5 minutes)
+          sleep 120 # Sleep for 120 seconds (2 minutes)
