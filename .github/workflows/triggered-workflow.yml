@@ -1,3 +1,18 @@
+# name: Triggered Workflow
+
+# on:
+#   repository_dispatch:
+#     types: [start-workflow]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Do something
+#         run: |
+#           echo "Running tasks in Repo B"
+#           sleep 120 # Sleep for 120 seconds (2 minutes)
+
 name: Triggered Workflow
 
 on:
@@ -7,9 +22,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: always() && false  # This condition will never be true
     steps:
-      - name: Do something
+      - name: Simulate failure
         run: |
           echo "Running tasks in Repo B"
-          sleep 120 # Sleep for 120 seconds (2 minutes)
+          sleep 120
+          echo "Forcing failure..."
+          exit 1  # This causes the job to fail
