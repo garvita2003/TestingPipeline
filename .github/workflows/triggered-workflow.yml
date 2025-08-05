@@ -1,3 +1,18 @@
+# name: Triggered Workflow
+
+# on:
+#   repository_dispatch:
+#     types: [start-workflow]
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Do something
+#         run: |
+#           echo "Running tasks in Repo B"
+#           sleep 120 # Sleep for 120 seconds (2 minutes)
+
 name: Triggered Workflow
 
 on:
@@ -6,10 +21,15 @@ on:
 
 jobs:
   build:
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Do something
         run: |
           echo "Running tasks in Repo B"
           sleep 120 # Sleep for 120 seconds (2 minutes)
+      
+      - name: Force failure
+        run: |
+          echo "This step is designed to fail"
+          exit 1 # This command forces the step and the job to fail
 
