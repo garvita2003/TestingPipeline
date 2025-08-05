@@ -27,9 +27,10 @@ jobs:
         run: |
           echo "Running tasks in Repo B"
           sleep 120 # Sleep for 120 seconds (2 minutes)
-      
-      - name: Force failure
+
+      - name: Ensure workflow always fails
+        if: always()
         run: |
-          echo "This step is designed to fail"
-          exit 1 # This command forces the step and the job to fail
+          echo "This is the final step, and it is designed to fail."
+          exit 1
 
