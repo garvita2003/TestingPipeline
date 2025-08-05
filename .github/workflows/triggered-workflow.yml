@@ -23,11 +23,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Do something
-        run: |
-          echo "Running tasks in Repo B"
-          sleep 120 # Sleep for 120 seconds (2 minutes)
-
       - name: Ensure workflow always fails
         if: always()
         run: |
