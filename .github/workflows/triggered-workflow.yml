@@ -8,6 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Run ID
+        run: echo "The workflow run ID is:" ${{ github.run_id }}
+        
       - name: Do something
         run: |
           echo "Running tasks in Repo B"
