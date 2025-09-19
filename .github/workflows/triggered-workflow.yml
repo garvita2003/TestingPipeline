@@ -1,4 +1,4 @@
-name: Triggered Workflow
+name: Triggered Workflow Runs
 
 on:
   repository_dispatch:
