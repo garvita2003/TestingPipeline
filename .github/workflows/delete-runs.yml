@@ -2,6 +2,11 @@ name: Delete old workflow runs
 
 on:
   workflow_dispatch:
+    inputs:
+      retain_days:
+        description: 'Number of days to keep runs'
+        required: true
+        default: '10'
 
 jobs:
   delete_runs:
@@ -15,3 +20,4 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
+          retain_days: ${{ github.event.inputs.retain_days }}
